@@ -126,7 +126,7 @@ var getSnsData = {
   },
   instagram : async function( artist_id ){
     var _d = data[ artist_id ]
-    const res = await fetch('https://www.instagram.com/' +_d.snsId.instagram+ "/?__a=1&__d=1", {
+    const res = await fetch('https://www.instagram.com/' +_d.snsId.instagram+ "?__a=1&__d=1", {
       method: "GET",
     })
     const posts = await res.text()
