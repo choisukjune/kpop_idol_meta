@@ -263,28 +263,36 @@ var getSnsData = {
     var r = [];
     posts02.items.map(function(item){
       console.log(item)
-      r.push(
+      try {
+        r.push(
 
-                    <div href="#" className="group">
-                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                      <img src={item.snippet.thumbnails.medium.url} alt={item.title} class="h-full w-full object-cover object-center group-hover:opacity-75"/>
-                    </div>
-                    <div className="mt-4 text-lg font-medium text-gray-900">
-                    <div className="mr-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-1 py-1 rounded-full bg-white text-gray-700 border">
+          <div href="#" className="group">
+          <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+            <img src={item.snippet.thumbnails.medium.url} alt={item.title} class="h-full w-full object-cover object-center group-hover:opacity-75"/>
+          </div>
+          <div className="mt-4 text-lg font-medium text-gray-900">
+          <div className="mr-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-1 py-1 rounded-full bg-white text-gray-700 border">
 
-                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 30 30">
-                        <path d="M 15 4 C 10.814 4 5.3808594 5.0488281 5.3808594 5.0488281 L 5.3671875 5.0644531 C 3.4606632 5.3693645 2 7.0076245 2 9 L 2 15 L 2 15.001953 L 2 21 L 2 21.001953 A 4 4 0 0 0 5.3769531 24.945312 L 5.3808594 24.951172 C 5.3808594 24.951172 10.814 26.001953 15 26.001953 C 19.186 26.001953 24.619141 24.951172 24.619141 24.951172 L 24.621094 24.949219 A 4 4 0 0 0 28 21.001953 L 28 21 L 28 15.001953 L 28 15 L 28 9 A 4 4 0 0 0 24.623047 5.0546875 L 24.619141 5.0488281 C 24.619141 5.0488281 19.186 4 15 4 z M 12 10.398438 L 20 15 L 12 19.601562 L 12 10.398438 z"></path>
-                      </svg>
-                    </div>
-                    youtube
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 30 30">
+              <path d="M 15 4 C 10.814 4 5.3808594 5.0488281 5.3808594 5.0488281 L 5.3671875 5.0644531 C 3.4606632 5.3693645 2 7.0076245 2 9 L 2 15 L 2 15.001953 L 2 21 L 2 21.001953 A 4 4 0 0 0 5.3769531 24.945312 L 5.3808594 24.951172 C 5.3808594 24.951172 10.814 26.001953 15 26.001953 C 19.186 26.001953 24.619141 24.951172 24.619141 24.951172 L 24.621094 24.949219 A 4 4 0 0 0 28 21.001953 L 28 21 L 28 15.001953 L 28 15 L 28 9 A 4 4 0 0 0 24.623047 5.0546875 L 24.619141 5.0488281 C 24.619141 5.0488281 19.186 4 15 4 z M 12 10.398438 L 20 15 L 12 19.601562 L 12 10.398438 z"></path>
+            </svg>
+          </div>
+          youtube
 
-                    </div>
-                    <h3 className="mt-1 text-sm text-gray-700"><Link href={"https://www.youtube.com/watch?v=" + item.snippet.resourceId.videoId} target="_blank">{item.snippet.title}</Link></h3>
-                    
-                  </div>
+          </div>
+          <h3 className="mt-1 text-sm text-gray-700"><Link href={"https://www.youtube.com/watch?v=" + item.snippet.resourceId.videoId} target="_blank">{item.snippet.title}</Link></h3>
+          
+        </div>
+        
       )
+      return r;
+      } catch (error) {
+        console.log(error)
+        return [];
+      }
+
     })
-    return r;
+    
   },
   spotify : async function( artist_id ){
     
