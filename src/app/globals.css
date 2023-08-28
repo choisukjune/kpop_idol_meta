@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255; */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0; */
+  }
+}
+
+body {
+  /* color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+}
+
+#imgDiv{
+  position: relative;
+}
+#columns{
+  column-width:250px;
+  column-gap: 15px;
+  padding:10px;
+}
+#columns figure{
+  display: inline-block;
+  border:1px solid rgba(0,0,0,0.2);
+  margin:10;
+  /* margin-bottom: 15px; */
+  padding:0px;
+  min-width: 300px;
+  /* position:relative; */
+}
+/* #columns figure img{
+  width:100%;
+} */
+#columns figure figcaption{
+  border-top:1px solid rgba(0,0,0,0.2);
+  padding:10px;
+  margin-top:11px;
+}
+
