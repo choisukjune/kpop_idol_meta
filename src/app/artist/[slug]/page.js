@@ -135,7 +135,7 @@ var getSnsData = {
       if(posts.status && posts.status == "fail") return r;
       
       if( posts.graphql.user.edge_felix_video_timeline.edges ) posts.graphql.user.edge_felix_video_timeline.edges.map(function(item){
-        console.log( item )
+        
         var txt = "";
           if( item.node.edge_media_to_caption.edges.length > 0  ) txt = item.node.edge_media_to_caption.edges[0].node.text
           var __o = {
