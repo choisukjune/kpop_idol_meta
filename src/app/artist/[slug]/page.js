@@ -132,7 +132,9 @@ var getSnsData = {
     const posts = await res.json()
     console.log(posts)
     var r = [];
-      if(posts.status && posts.status == "fail") return r;
+      try
+      {
+        if(posts.status && posts.status == "fail") return r;
       console.log(posts.graphql.user.edge_felix_video_timeline.edges)
       posts.graphql.user.edge_felix_video_timeline.edges.map(function(item){
         console.log( item )
@@ -229,6 +231,13 @@ var getSnsData = {
 
     console.log( r );
     return r;
+      }
+      catch(er)
+      {
+        console.log(r)
+        return [];
+      }
+      
   },
   youtube : async function( artist_id ){
     var snsKey = data[ artist_id ].snsId.youtube;
