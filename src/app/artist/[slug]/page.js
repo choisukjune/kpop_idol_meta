@@ -252,11 +252,11 @@ var getSnsData = {
     // // will receive `posts` as a prop at build time
     console.log(posts02)
     var r = [];
-    posts02.items.map(function(item){
+    posts02.items.map(function(item,index){
       console.log(item)
       r.push(
 
-                    <div href="#" className="group">
+                    <div key={index} className="group">
                     <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                       <img src={item.snippet.thumbnails.medium.url} alt={item.title} class="h-full w-full object-cover object-center group-hover:opacity-75"/>
                     </div>
