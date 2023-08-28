@@ -133,8 +133,8 @@ var getSnsData = {
     console.log(posts)
     var r = [];
       if(posts.status && posts.status == "fail") return r;
-      console.log(posts.graphql.user.edge_felix_video_timeline.edges)
-      posts.graphql.user.edge_felix_video_timeline.edges.map(function(item){
+      
+      if( posts.graphql.user.edge_felix_video_timeline.edges ) posts.graphql.user.edge_felix_video_timeline.edges.map(function(item){
         console.log( item )
         var txt = "";
           if( item.node.edge_media_to_caption.edges.length > 0  ) txt = item.node.edge_media_to_caption.edges[0].node.text
@@ -188,7 +188,7 @@ var getSnsData = {
                   blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
                   />
 */
-      posts.graphql.user.edge_owner_to_timeline_media.edges.map(function(item){
+if( posts.graphql.user.edge_owner_to_timeline_media.edges ) posts.graphql.user.edge_owner_to_timeline_media.edges.map(function(item){
         var txt = "";
           if( item.node.edge_media_to_caption.edges.length > 0  ) txt = item.node.edge_media_to_caption.edges[0].node.text
           var __o = {
@@ -362,7 +362,7 @@ export default async function Page({ params }) {
 
     // }
 
-    var r = await getSnsData[ "spotify" ]( params.slug  ); 
+    var r = await getSnsData[ "instagram" ]( params.slug  ); 
         
     var i = 0,iLen = r.length,io;
     for(;i<iLen;++i){
@@ -371,29 +371,29 @@ export default async function Page({ params }) {
     }
 
 
-    var r = await getSnsData[ "news" ]( params.slug  ); 
+    // var r = await getSnsData[ "news" ]( params.slug  ); 
         
-    var i = 0,iLen = r.length,io;
-    for(;i<iLen;++i){
-      io = r[ i ];
-      result.push( io )
-    }
+    // var i = 0,iLen = r.length,io;
+    // for(;i<iLen;++i){
+    //   io = r[ i ];
+    //   result.push( io )
+    // }
 
-    var r = await getSnsData[ "naverImage" ]( params.slug  ); 
+    // var r = await getSnsData[ "naverImage" ]( params.slug  ); 
         
-    var i = 0,iLen = r.length,io;
-    for(;i<iLen;++i){
-      io = r[ i ];
-      result.push( io )
-    }
+    // var i = 0,iLen = r.length,io;
+    // for(;i<iLen;++i){
+    //   io = r[ i ];
+    //   result.push( io )
+    // }
 
-    var r = await getSnsData[ "youtube" ]( params.slug  ); 
+    // var r = await getSnsData[ "youtube" ]( params.slug  ); 
         
-    var i = 0,iLen = r.length,io;
-    for(;i<iLen;++i){
-      io = r[ i ];
-      result.push( io )
-    }
+    // var i = 0,iLen = r.length,io;
+    // for(;i<iLen;++i){
+    //   io = r[ i ];
+    //   result.push( io )
+    // }
 
     var tags=[];
     var z,zo;
