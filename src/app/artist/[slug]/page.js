@@ -88,41 +88,48 @@ var getSnsData = {
     */
     var regex = /(&amp;|&quot;|&apos;|&nbsp;|<([^>]+)>)/ig;
     var r = [];
-    posts.items.map(function(item){
-      console.log(item.thumbnail)
-      r.push(
-
-        <div href="#" className="group">
-                    <div  style={{position:"relative"}} className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 relative">
-            <Image 
-              src={item.link}
-              alt={""}
-              width={400}
-              height={400}
-              layout="responsive"
-              className="rh-full w-full object-cover object-center group-hover:opacity-75"
-              objectFit="cover"
-            
-              />
-
+    try {
+      posts.items.map(function(item){
+        console.log(item.thumbnail)
+        r.push(
+  
+          <div href="#" className="group">
+                      <div  style={{position:"relative"}} className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 relative">
+              <Image 
+                src={item.link}
+                alt={""}
+                width={400}
+                height={400}
+                layout="responsive"
+                className="rh-full w-full object-cover object-center group-hover:opacity-75"
+                objectFit="cover"
+              
+                />
+  
+          </div>
+          <div className="mt-4 text-lg font-medium text-gray-900">
+          <div className="mr-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-1 py-1 rounded-full bg-white text-gray-700 border">
+  
+          <svg xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+  
+          </div>
+          Image
+  
+          </div>
+          <h3 className="mt-1 text-sm text-gray-700">{item.title.replace(regex,"")}</h3>
+          
         </div>
-        <div className="mt-4 text-lg font-medium text-gray-900">
-        <div className="mr-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-1 py-1 rounded-full bg-white text-gray-700 border">
-
-        <svg xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-        </svg>
-
-        </div>
-        Image
-
-        </div>
-        <h3 className="mt-1 text-sm text-gray-700">{item.title.replace(regex,"")}</h3>
-        
-      </div>
-      )
-    })
-    return r;
+        )
+      })
+      return r;
+    } catch (error) {
+      console.log( "naver - image - error" )
+      console.log( error )
+      return [];
+    }
+    
   },
   instagram : async function( artist_id ){
     var _d = data[ artist_id ]
@@ -228,12 +235,11 @@ var getSnsData = {
       })
       // _to.g = o.graphql.user.edge_related_profiles.edges;
       // _to.h = o.graphql.user.edge_saved_media.edges;
-
-    console.log( r );
     return r;
       }
       catch(er)
       {
+        console.log("instagram - error")
         console.log(r)
         return [];
       }
@@ -259,10 +265,11 @@ var getSnsData = {
     const posts02 = await res02.json()
     // // By returning { props: { posts } }, the Blog component
     // // will receive `posts` as a prop at build time
-    console.log(posts02)
+    
+    console.log("----------------------------------------")
     var r = [];
     posts02.items.map(function(item){
-      console.log(item)
+      
       try {
         r.push(
 
@@ -287,6 +294,7 @@ var getSnsData = {
       )
       return r;
       } catch (error) {
+        console.log("youtube - error")
         console.log(error)
         return [];
       }
@@ -330,29 +338,37 @@ var getSnsData = {
     const posts01 = await res01.json()
     console.log("post01",posts01)
     var r = [];
-    posts01.items.map(function(item){
-      r.push(
 
-              <div href="#" className="group">
-                
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img src={item.images[1].url} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75"/>
-              </div>
-              <div className="mt-4 text-lg font-medium text-gray-900">
-                
-              <div className="mr-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-1 py-1 rounded-full bg-white text-gray-700 border">
-
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 30 30">
-                <path d="M15,3C8.4,3,3,8.4,3,15s5.4,12,12,12s12-5.4,12-12S21.6,3,15,3z M19.731,21c-0.22,0-0.33-0.11-0.55-0.22 c-1.65-0.991-3.74-1.54-5.94-1.54c-1.21,0-2.53,0.22-3.63,0.44c-0.22,0-0.44,0.11-0.55,0.11c-0.44,0-0.77-0.33-0.77-0.77 s0.22-0.77,0.66-0.77c1.43-0.33,2.861-0.55,4.401-0.55c2.53,0,4.84,0.66,6.82,1.76c0.22,0.22,0.44,0.33,0.44,0.77 C20.39,20.78,20.06,21,19.731,21z M20.94,17.921c-0.22,0-0.44-0.11-0.66-0.22c-1.87-1.21-4.511-1.87-7.37-1.87 c-1.43,0-2.751,0.22-3.74,0.44c-0.22,0.11-0.33,0.11-0.55,0.11c-0.55,0-0.881-0.44-0.881-0.881c0-0.55,0.22-0.77,0.77-0.991 c1.32-0.33,2.641-0.66,4.511-0.66c3.08,0,5.94,0.77,8.361,2.2c0.33,0.22,0.55,0.55,0.55,0.881 C21.82,17.48,21.491,17.921,20.94,17.921z M22.37,14.4c-0.22,0-0.33-0.11-0.66-0.22c-2.2-1.21-5.39-1.98-8.47-1.98 c-1.54,0-3.19,0.22-4.621,0.55c-0.22,0-0.33,0.11-0.66,0.11c-0.66,0.111-1.1-0.44-1.1-1.099s0.33-0.991,0.77-1.1 C9.39,10.22,11.26,10,13.24,10c3.41,0,6.93,0.77,9.681,2.2c0.33,0.22,0.66,0.55,0.66,1.1C23.471,13.96,23.03,14.4,22.37,14.4z"></path>
-                </svg>
+    try {
+      posts01.items.map(function(item){
+        r.push(
+  
+                <div href="#" className="group">
+                  
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                  <img src={item.images[1].url} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75"/>
                 </div>
-                spotify
+                <div className="mt-4 text-lg font-medium text-gray-900">
+                  
+                <div className="mr-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-1 py-1 rounded-full bg-white text-gray-700 border">
+  
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 30 30">
+                  <path d="M15,3C8.4,3,3,8.4,3,15s5.4,12,12,12s12-5.4,12-12S21.6,3,15,3z M19.731,21c-0.22,0-0.33-0.11-0.55-0.22 c-1.65-0.991-3.74-1.54-5.94-1.54c-1.21,0-2.53,0.22-3.63,0.44c-0.22,0-0.44,0.11-0.55,0.11c-0.44,0-0.77-0.33-0.77-0.77 s0.22-0.77,0.66-0.77c1.43-0.33,2.861-0.55,4.401-0.55c2.53,0,4.84,0.66,6.82,1.76c0.22,0.22,0.44,0.33,0.44,0.77 C20.39,20.78,20.06,21,19.731,21z M20.94,17.921c-0.22,0-0.44-0.11-0.66-0.22c-1.87-1.21-4.511-1.87-7.37-1.87 c-1.43,0-2.751,0.22-3.74,0.44c-0.22,0.11-0.33,0.11-0.55,0.11c-0.55,0-0.881-0.44-0.881-0.881c0-0.55,0.22-0.77,0.77-0.991 c1.32-0.33,2.641-0.66,4.511-0.66c3.08,0,5.94,0.77,8.361,2.2c0.33,0.22,0.55,0.55,0.55,0.881 C21.82,17.48,21.491,17.921,20.94,17.921z M22.37,14.4c-0.22,0-0.33-0.11-0.66-0.22c-2.2-1.21-5.39-1.98-8.47-1.98 c-1.54,0-3.19,0.22-4.621,0.55c-0.22,0-0.33,0.11-0.66,0.11c-0.66,0.111-1.1-0.44-1.1-1.099s0.33-0.991,0.77-1.1 C9.39,10.22,11.26,10,13.24,10c3.41,0,6.93,0.77,9.681,2.2c0.33,0.22,0.66,0.55,0.66,1.1C23.471,13.96,23.03,14.4,22.37,14.4z"></path>
+                  </svg>
+                  </div>
+                  spotify
+                </div>
+                <h3 className="mt-1 text-sm text-gray-700"><Link href={item.external_urls.spotify} target="_blank">{item.name}</Link></h3>
               </div>
-              <h3 className="mt-1 text-sm text-gray-700"><Link href={item.external_urls.spotify} target="_blank">{item.name}</Link></h3>
-            </div>
-      )
-    })
-    return r;
+        )
+      })
+      return r;
+    } catch (error) {
+      console.log("spotify - error")
+      console.log(error)
+      return [];
+    }
+    
   },
 }
 
