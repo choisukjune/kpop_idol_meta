@@ -339,111 +339,112 @@ if( posts.graphql.user.edge_owner_to_timeline_media.edges ) posts.graphql.user.e
   },
 }
 
-
-export default async function Page({ params }) {
+const Logic = async ({ params }) => {
   console.log( params.slug )
   
     
-    var result = [];
-    var s,so;
-    // for( s in data[ params.slug ].snsId ){
+  var result = [];
+  var s,so;
+  // for( s in data[ params.slug ].snsId ){
+    
+  //   if( getSnsData[ s ] )
+  //   {
       
-    //   if( getSnsData[ s ] )
-    //   {
-        
-    //     var r = await getSnsData[ s ]( params.slug  ); 
-        
-    //     var i = 0,iLen = r.length,io;
-    //     for(;i<iLen;++i){
-    //       io = r[ i ];
-    //       result.push( io )
-    //     }
-    //   }
+  //     var r = await getSnsData[ s ]( params.slug  ); 
+      
+  //     var i = 0,iLen = r.length,io;
+  //     for(;i<iLen;++i){
+  //       io = r[ i ];
+  //       result.push( io )
+  //     }
+  //   }
 
-    // }
+  // }
 
-    var r = await getSnsData[ "instagram" ]( params.slug  ); 
-        
-    var i = 0,iLen = r.length,io;
-    for(;i<iLen;++i){
-      io = r[ i ];
-      result.push( io )
-    }
+  var r = await getSnsData[ "instagram" ]( params.slug  ); 
+      
+  var i = 0,iLen = r.length,io;
+  for(;i<iLen;++i){
+    io = r[ i ];
+    result.push( io )
+  }
 
 
-    // var r = await getSnsData[ "news" ]( params.slug  ); 
-        
-    // var i = 0,iLen = r.length,io;
-    // for(;i<iLen;++i){
-    //   io = r[ i ];
-    //   result.push( io )
-    // }
+  // var r = await getSnsData[ "news" ]( params.slug  ); 
+      
+  // var i = 0,iLen = r.length,io;
+  // for(;i<iLen;++i){
+  //   io = r[ i ];
+  //   result.push( io )
+  // }
 
-    // var r = await getSnsData[ "naverImage" ]( params.slug  ); 
-        
-    // var i = 0,iLen = r.length,io;
-    // for(;i<iLen;++i){
-    //   io = r[ i ];
-    //   result.push( io )
-    // }
+  // var r = await getSnsData[ "naverImage" ]( params.slug  ); 
+      
+  // var i = 0,iLen = r.length,io;
+  // for(;i<iLen;++i){
+  //   io = r[ i ];
+  //   result.push( io )
+  // }
 
-    // var r = await getSnsData[ "youtube" ]( params.slug  ); 
-        
-    // var i = 0,iLen = r.length,io;
-    // for(;i<iLen;++i){
-    //   io = r[ i ];
-    //   result.push( io )
-    // }
+  // var r = await getSnsData[ "youtube" ]( params.slug  ); 
+      
+  // var i = 0,iLen = r.length,io;
+  // for(;i<iLen;++i){
+  //   io = r[ i ];
+  //   result.push( io )
+  // }
 
-    var tags=[];
-    var z,zo;
-    for( z in data[ params.slug ].sns ){
-      zo = data[ params.slug ].sns[ z ];
-      tags.push(
-        <div className="mr-2 text-xs inline-flex items-center font-bold leading-sm uppercase px-2 py-2 rounded-full bg-white text-gray-700 border">
+  var tags=[];
+  var z,zo;
+  for( z in data[ params.slug ].sns ){
+    zo = data[ params.slug ].sns[ z ];
+    tags.push(
+      <div className="mr-2 text-xs inline-flex items-center font-bold leading-sm uppercase px-2 py-2 rounded-full bg-white text-gray-700 border">
 
-        {snsIcon[z]?snsIcon[z] : z}
-        </div>
+      {snsIcon[z]?snsIcon[z] : z}
+      </div>
 
-      )
-    }
+    )
+  }
 
-  return (
+return (
 
 <div class="bg-white">
-  <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-  <div role="list" className="divide-y divide-gray-100">
-  <div className="flex min-w-0 gap-x-4 mb-10 ">
-      <img className="h-12 w-12  object-cover object-center group-hover:opacity-75 rounded-full bg-gray-50" src={data[ params.slug ].imgUrl} alt=""/>
-      <div className="min-w-0 flex-auto">
-        <p className="flex text-lg font-semibold leading-6 text-gray-900">{data[ params.slug ].names.KO}
-        
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
-        </svg>
-        
-        </p>
-        <p className="mt-1 truncate text-xs leading-5 text-gray-500">{data[ params.slug ].names.EN}</p>
-      </div>
-          <div className="hidden shrink-0 sm:flex sm:items-end">
-      <div className="flex flex-wrap mt-1 text-sm text-gray-700">{tags}</div>
+<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+<div role="list" className="divide-y divide-gray-100">
+<div className="flex min-w-0 gap-x-4 mb-10 ">
+    <img className="h-12 w-12  object-cover object-center group-hover:opacity-75 rounded-full bg-gray-50" src={data[ params.slug ].imgUrl} alt=""/>
+    <div className="min-w-0 flex-auto">
+      <p className="flex text-lg font-semibold leading-6 text-gray-900">{data[ params.slug ].names.KO}
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+      </svg>
+      
+      </p>
+      <p className="mt-1 truncate text-xs leading-5 text-gray-500">{data[ params.slug ].names.EN}</p>
     </div>
+        <div className="hidden shrink-0 sm:flex sm:items-end">
+    <div className="flex flex-wrap mt-1 text-sm text-gray-700">{tags}</div>
+  </div>
 
-    </div>
-</div>
-
-    <h2 class="text-2xl font-bold text-gray-900 mb-10">Collections</h2>
-
-    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-    {
-      result
-    }
-    </div>
   </div>
 </div>
-  )
+
+  <h2 class="text-2xl font-bold text-gray-900 mb-10">Collections</h2>
+
+  <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+  {
+    result
+  }
+  </div>
+</div>
+</div>
+)
+
 }
 
+export default Logic;
 
 
 
