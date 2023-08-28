@@ -377,6 +377,14 @@ export default async function Page({ params }) {
       result.push( io )
     }
 
+    var r = await getSnsData[ "instagram" ]( params.slug  ); 
+        
+    var i = 0,iLen = r.length,io;
+    for(;i<iLen;++i){
+      io = r[ i ];
+      result.push( io )
+    }
+
     var tags=[];
     var z,zo;
     for( z in data[ params.slug ].sns ){
