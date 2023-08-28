@@ -377,7 +377,7 @@ export default async function Page({ params }) {
       result.push( io )
     }
 
-    var r = await getSnsData[ "instagram" ]( params.slug  ); 
+    var r = await getSnsData[ "youtube" ]( params.slug  ); 
         
     var i = 0,iLen = r.length,io;
     for(;i<iLen;++i){
