@@ -346,21 +346,21 @@ export default async function Page({ params }) {
     
     var result = [];
     var s,so;
-    for( s in data[ params.slug ].snsId ){
+    // for( s in data[ params.slug ].snsId ){
       
-      if( getSnsData[ s ] )
-      {
+    //   if( getSnsData[ s ] )
+    //   {
         
-        var r = await getSnsData[ s ]( params.slug  ); 
+    //     var r = await getSnsData[ s ]( params.slug  ); 
         
-        var i = 0,iLen = r.length,io;
-        for(;i<iLen;++i){
-          io = r[ i ];
-          result.push( io )
-        }
-      }
+    //     var i = 0,iLen = r.length,io;
+    //     for(;i<iLen;++i){
+    //       io = r[ i ];
+    //       result.push( io )
+    //     }
+    //   }
 
-    }
+    // }
     var r = await getSnsData[ "news" ]( params.slug  ); 
         
     var i = 0,iLen = r.length,io;
