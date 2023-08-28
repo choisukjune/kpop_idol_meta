@@ -361,6 +361,16 @@ export default async function Page({ params }) {
     //   }
 
     // }
+
+    var r = await getSnsData[ "spotify" ]( params.slug  ); 
+        
+    var i = 0,iLen = r.length,io;
+    for(;i<iLen;++i){
+      io = r[ i ];
+      result.push( io )
+    }
+
+
     var r = await getSnsData[ "news" ]( params.slug  ); 
         
     var i = 0,iLen = r.length,io;
