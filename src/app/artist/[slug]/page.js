@@ -129,101 +129,106 @@ var getSnsData = {
     const res = await fetch('https://www.instagram.com/' +_d.snsId.instagram+ "/?__a=1&__d=1", {
       method: "GET",
     })
-    const posts = await res.json()
+    const posts = await res.text()
     console.log(posts)
     var r = [];
-      if(posts.status && posts.status == "fail") return r;
+    r.push(
+      <>
+      <div>{posts}</div>
+      </>
+    )
+//       if(posts.status && posts.status == "fail") return r;
       
-      if( posts.graphql.user.edge_felix_video_timeline.edges ) posts.graphql.user.edge_felix_video_timeline.edges.map(function(item){
+//       if( posts.graphql.user.edge_felix_video_timeline.edges ) posts.graphql.user.edge_felix_video_timeline.edges.map(function(item){
         
-        var txt = "";
-          if( item.node.edge_media_to_caption.edges.length > 0  ) txt = item.node.edge_media_to_caption.edges[0].node.text
-          var __o = {
-            img : item.node.display_url,
-            txt : txt
-          }
-          r.push(
+//         var txt = "";
+//           if( item.node.edge_media_to_caption.edges.length > 0  ) txt = item.node.edge_media_to_caption.edges[0].node.text
+//           var __o = {
+//             img : item.node.display_url,
+//             txt : txt
+//           }
+//           r.push(
 
-            <div href="#" className="group">
-            <div  style={{position:"relative"}} className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 relative">
-            <Image 
-              src={__o.img}
-              alt={""}
-              width={400}
-              height={400}
-              layout="responsive"
-              className="rh-full w-full object-cover object-center group-hover:opacity-75"
-              objectFit="cover"
+//             <div href="#" className="group">
+//             <div  style={{position:"relative"}} className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 relative">
+//             <Image 
+//               src={__o.img}
+//               alt={""}
+//               width={400}
+//               height={400}
+//               layout="responsive"
+//               className="rh-full w-full object-cover object-center group-hover:opacity-75"
+//               objectFit="cover"
             
-              />
-            </div>
-            <div className="mt-4 text-lg font-medium text-gray-900">
+//               />
+//             </div>
+//             <div className="mt-4 text-lg font-medium text-gray-900">
               
-            <div className="mr-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-1 py-1 rounded-full bg-white text-gray-700 border">
+//             <div className="mr-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-1 py-1 rounded-full bg-white text-gray-700 border">
 
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 30 30">
-            <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z"></path>
-            </svg>
-              </div>
-              instagram
-            </div>
-            <h3 className="mt-1 text-sm text-gray-700">{__o.txt}</h3>
-          </div>
+//             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 30 30">
+//             <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z"></path>
+//             </svg>
+//               </div>
+//               instagram
+//             </div>
+//             <h3 className="mt-1 text-sm text-gray-700">{__o.txt}</h3>
+//           </div>
             
-          )
-      })
+//           )
+//       })
 
-      // _to.b = o.graphql.user.edge_follow.edges;
-      // _to.c = o.graphql.user.edge_followed_by.edges;
-      // _to.d = o.graphql.user.edge_media_collections.edges;
-      // _to.e = o.graphql.user.edge_mutual_followed_by.edges;
-/*
+//       // _to.b = o.graphql.user.edge_follow.edges;
+//       // _to.c = o.graphql.user.edge_followed_by.edges;
+//       // _to.d = o.graphql.user.edge_media_collections.edges;
+//       // _to.e = o.graphql.user.edge_mutual_followed_by.edges;
+// /*
 
-              <Image src={__o.img}
-                  className="object-cover object-center group-hover:opacity-75"
-                  layout='fill'
-                  alt={""}
-                  loading='lazy'
-                  placeholder="blur"
-                  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
-                  />
-*/
-if( posts.graphql.user.edge_owner_to_timeline_media.edges ) posts.graphql.user.edge_owner_to_timeline_media.edges.map(function(item){
-        var txt = "";
-          if( item.node.edge_media_to_caption.edges.length > 0  ) txt = item.node.edge_media_to_caption.edges[0].node.text
-          var __o = {
-            img : item.node.display_url,
-            txt : txt
-          }
-          r.push(
-            <div href="#" className="group">
-            <div className="relative aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <Image 
-              src={__o.img}
-              alt={""}
-              width={400}
-              height={400}
-              layout="responsive"
-              className="h-full w-full object-cover object-center group-hover:opacity-75"
-              objectFit="cover"
+//               <Image src={__o.img}
+//                   className="object-cover object-center group-hover:opacity-75"
+//                   layout='fill'
+//                   alt={""}
+//                   loading='lazy'
+//                   placeholder="blur"
+//                   blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+//                   />
+// */
+// if( posts.graphql.user.edge_owner_to_timeline_media.edges ) posts.graphql.user.edge_owner_to_timeline_media.edges.map(function(item){
+//         var txt = "";
+//           if( item.node.edge_media_to_caption.edges.length > 0  ) txt = item.node.edge_media_to_caption.edges[0].node.text
+//           var __o = {
+//             img : item.node.display_url,
+//             txt : txt
+//           }
+//           r.push(
+//             <div href="#" className="group">
+//             <div className="relative aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+//             <Image 
+//               src={__o.img}
+//               alt={""}
+//               width={400}
+//               height={400}
+//               layout="responsive"
+//               className="h-full w-full object-cover object-center group-hover:opacity-75"
+//               objectFit="cover"
             
-              />
-            </div>
-            <div className="mt-4 text-lg font-medium text-gray-900">
+//               />
+//             </div>
+//             <div className="mt-4 text-lg font-medium text-gray-900">
               
-            <div className="mr-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-1 py-1 rounded-full bg-white text-gray-700 border">
+//             <div className="mr-1 text-xs inline-flex items-center font-bold leading-sm uppercase px-1 py-1 rounded-full bg-white text-gray-700 border">
 
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 30 30">
-            <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z"></path>
-            </svg>
-              </div>
-              instagram
-            </div>
-            <h3 className="mt-1 text-sm text-gray-700">{__o.txt}</h3>
-          </div>
+//             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 30 30">
+//             <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4 0 0 0 15 11 z"></path>
+//             </svg>
+//               </div>
+//               instagram
+//             </div>
+//             <h3 className="mt-1 text-sm text-gray-700">{__o.txt}</h3>
+//           </div>
 
-          )
-      })
+//           )
+//       })
       // _to.g = o.graphql.user.edge_related_profiles.edges;
       // _to.h = o.graphql.user.edge_saved_media.edges;
 
