@@ -386,7 +386,7 @@ const Logic = async ({ params }) => {
   for( z in data[ params.slug ].sns ){
     zo = data[ params.slug ].sns[ z ];
     tags.push(
-      <div className="mr-2 text-xs inline-flex items-center font-bold leading-sm uppercase px-2 py-2 rounded-full bg-white text-gray-700 border">
+      <div className="ml-2 mb-2 text-xs inline-flex items-center font-bold leading-sm uppercase px-2 py-2 rounded-full bg-white text-gray-700 border">
 
       {snsIcon[z]?snsIcon[z] : z}
       </div>
@@ -445,7 +445,7 @@ return (
       </div>
 
       <div className="shrink-0 sm:flex sm:items-end">
-      <div className="flex flex-wrap mt-1 text-sm text-gray-700 sm:flex sm:items-end">{tags}</div>
+      <div className="flex flex-wrap mt-1 text-sm text-gray-700 sm:flex sm:items-end text-right" >{tags}</div>
     </div>
     </div>
   </div>
