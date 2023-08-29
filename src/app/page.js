@@ -37,7 +37,7 @@ export default function Home() {
       for( z in so.sns ){
         zo = so.sns[ z ];
         tags.push(
-          <div className="mr-2 text-xs inline-flex items-center font-bold leading-sm uppercase px-2 py-2 rounded-full bg-white text-gray-700 border">
+          <div className="flex mr-2 text-xs inline-flex items-center font-bold leading-sm uppercase px-2 py-2 rounded-full bg-white text-gray-700 border">
 
           {snsIcon[z]?snsIcon[z] : z}
           </div>
@@ -79,8 +79,8 @@ export default function Home() {
         <p className="mt-1 truncate text-xs leading-5 text-gray-500">{so.names.EN}</p>
       </div>
     </div>
-    <div className="hidden shrink-0 sm:flex sm:items-end">
-      <div className="flex flex-wrap mt-1 text-sm text-gray-700">{tags}</div>
+    <div className="shrink-0 sm:flex sm:items-end">
+      <div className="flex flex-wrap mt-1 text-sm text-gray-700 sm:flex sm:items-end">{tags}</div>
     </div>
    
   </li>

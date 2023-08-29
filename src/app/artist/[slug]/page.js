@@ -444,10 +444,9 @@ return (
         <p className="mt-1 truncate text-xs leading-5 text-gray-500">{data[ params.slug ].names.EN}</p>
       </div>
 
-      <div className="hidden shrink-0 sm:flex sm:items-end">
-        <div className="flex flex-wrap mt-1 text-sm text-gray-700">{tags}</div>
+      <div className="shrink-0 sm:flex sm:items-end">
+        <div className="flex flex-wrap mt-1 text-sm text-gray-700 sm:flex sm:items-end">{tags}</div>
       </div>
-
     </div>
   </div>
 
