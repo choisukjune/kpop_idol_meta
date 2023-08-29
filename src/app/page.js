@@ -66,8 +66,8 @@ export default function Home() {
       <li className="flex justify-between gap-x-6 py-5">
         
     <div className="flex min-w-0 gap-x-4">
-      <img className="h-12 w-12  object-cover object-center group-hover:opacity-75 rounded-full bg-gray-50" src={so.imgUrl} alt=""/>
-      <div className="min-w-0 flex-auto">
+      <img className="flex-none h-12 w-12  object-cover object-center group-hover:opacity-75 rounded-full bg-gray-50" src={so.imgUrl} alt=""/>
+      <div className="flex-none min-w-0 flex-auto">
         <p className="flex text-lg font-semibold leading-6 text-gray-900">{so.names.KO}
         
         <Link href={"/artist/" + s } target='_blank'>
@@ -79,7 +79,7 @@ export default function Home() {
         <p className="mt-1 truncate text-xs leading-5 text-gray-500">{so.names.EN}</p>
       </div>
     </div>
-    <div className="shrink-0 sm:flex sm:items-end">
+    <div className="shrink sm:flex sm:items-end">
       <div className="flex flex-wrap mt-1 text-sm text-gray-700 sm:flex sm:items-end">{tags}</div>
     </div>
    
