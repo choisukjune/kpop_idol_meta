@@ -396,27 +396,57 @@ const Logic = async ({ params }) => {
 
 return (
 
+    
+
 <div class="bg-white">
-<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-<div role="list" className="divide-y divide-gray-100">
-<div className="flex min-w-0 gap-x-4 mb-10 ">
-    <img className="h-12 w-12  object-cover object-center group-hover:opacity-75 rounded-full bg-gray-50" src={data[ params.slug ].imgUrl} alt=""/>
-    <div className="min-w-0 flex-auto">
-      <p className="flex text-lg font-semibold leading-6 text-gray-900">{data[ params.slug ].names.KO}
-      
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
-      </svg>
-      
-      </p>
-      <p className="mt-1 truncate text-xs leading-5 text-gray-500">{data[ params.slug ].names.EN}</p>
-    </div>
-        <div className="hidden shrink-0 sm:flex sm:items-end">
-    <div className="flex flex-wrap mt-1 text-sm text-gray-700">{tags}</div>
+  
+<div class="mx-auto max-w-2xl px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+
+  <div class="hero-headline flex flex-col mb-10 items-center justify-center text-center">
+      <h1 class=" font-bold text-3xl text-gray-900">Stunning free images & royalty free stock</h1>
+      <p class=" font-base text-base text-gray-600">high quality stock images and videos shared by our talented community.</p>
   </div>
 
+
+  <div class="box mb-10">
+      <div class="box-wrapper">
+
+          <div class=" bg-white rounded flex items-center w-full p-3 shadow-sm border border-gray-200">
+            <button class="outline-none focus:outline-none"><svg class=" w-5 text-gray-600 h-5 cursor-pointer" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            <input type="search" name=""  placeholder="search for images" x-model="q" class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"/>
+            <div class="select">
+              <select name="" id="" x-model="image_type" class="text-sm outline-none focus:outline-none bg-transparent">
+                <option value="all" selected>All</option>
+                <option value="photo">Photo</option>
+                <option value="illustration">Illustration</option>
+                <option value="vector">Vector</option>
+                </select>
+            </div>
+          </div>
+        
+      </div>
   </div>
-</div>
+
+  <div role="list" className="divide-y divide-gray-100">
+    <div className="flex min-w-0 gap-x-4 mb-10 ">
+      
+      <img className="h-12 w-12  object-cover object-center group-hover:opacity-75 rounded-full bg-gray-50" src={data[ params.slug ].imgUrl} alt=""/>
+      
+      <div className="min-w-0 flex-auto">
+        <p className="flex text-lg font-semibold leading-6 text-gray-900">{data[ params.slug ].names.KO}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+          </svg>
+        </p>
+        <p className="mt-1 truncate text-xs leading-5 text-gray-500">{data[ params.slug ].names.EN}</p>
+      </div>
+
+      <div className="hidden shrink-0 sm:flex sm:items-end">
+        <div className="flex flex-wrap mt-1 text-sm text-gray-700">{tags}</div>
+      </div>
+
+    </div>
+  </div>
 
   <h2 class="text-2xl font-bold text-gray-900 mb-10">Collections</h2>
 
