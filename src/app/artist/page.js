@@ -1,9 +1,9 @@
 "use client"
 import Image from 'next/image'
-import data from './artistInfo.json';
+import data from '../../app/artistInfo.json';
 import Link from 'next/link'
 import React, { useState } from 'react';
-import Logo from "../../components/Logo"
+import Logo from "../../../components/Logo"
 
 
 
