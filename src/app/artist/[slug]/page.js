@@ -435,6 +435,15 @@ return (
 
 }
 
+export async function generateMetadata({ params, searchParams }, parent) {
+
+  var key = params.slug;
+  return {
+    title : data[params.slug].names.KO + "-" + data[params.slug].names.EN
+    , description : data[params.slug].names.KO + "-" + data[params.slug].names.EN
+  }
+}
+
 export default Logic;
 
 
