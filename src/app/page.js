@@ -119,9 +119,10 @@ const Search = (props) => {
     const handleChange = (e) => {
     setSearch(e.target.value)
     console.log(e.target.value)
+    var searchData = getStarData(e.target.value)
+    if( Object.keys(searchData).length == 0 ) return;
     if( e.target.value != "" ) props.onChangeSearchVisible("")
     else props.onChangeSearchVisible("hidden")
-    var searchData = getStarData(e.target.value)
     props.onChangeSearchKeyword(searchData);
 
     }
@@ -137,8 +138,7 @@ const Search = (props) => {
     return (
       <div className="hero-headline flex flex-col mb-1 items-center justify-center text-center">
           <div className=" bg-white rounded flex items-center justify-center w-full p-3 shadow-sm border border-gray-200 lg:w-1/2">
-            <input type="search" value={search} onChange={handleChange} onKeyDown={handleKeyDown} name=""  placeholder="search for images" x-model="q" className="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"/>
-            <button className="outline-none focus:outline-none"><svg className=" w-5 text-gray-600 h-5 cursor-pointer" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            <input type="search" value={search} onChange={handleChange} onKeyDown={handleKeyDown} name=""  placeholder="search for Artist" x-model="q" className="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"/>
           </div>
       </div>
 
@@ -208,12 +208,12 @@ const MakeStarList1 = ( props ) => {
     result.push(
 
       
-      <li class="text-gray-900 cursor-default select-none py-2 pl-3 pr-9" id="listbox-option-0" role="option">
+      <li className="text-gray-900 cursor-default select-none py-2 pl-3 pr-9" id="listbox-option-0" role="option">
         <Link href={"/artist/" + s } target="_blank">  
-        <div class="flex items-center">
+        <div className="flex items-center">
           
-            <img src={so.imgUrl} alt="" class="h-5 w-5 flex-shrink-0 rounded-full"/>
-            <span class="font-normal ml-3 block truncate">{so.names.KO}</span>
+            <img src={so.imgUrl} alt="" className="h-5 w-5 flex-shrink-0 rounded-full"/>
+            <span className="font-normal ml-3 block truncate">{so.names.KO}</span>
             <p className="ml-3 mt-1 truncate text-xs leading-5 text-gray-500">{so.names.EN}</p>
           
         </div>
@@ -230,7 +230,7 @@ const Rendering1 = (props) => {
   return (
   
     <div style={{visibility: props.visible}} role="list" className="mt-1 divide-y divide-gray-100 relative flex flex-col mb-10 items-center  text-center">
-      <ul class="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm  lg:w-1/2" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
+      <ul className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm  lg:w-1/2" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
       <MakeStarList1 data={props.data}/>
       </ul>
     </div>
@@ -269,20 +269,26 @@ const Home = () => {
   return (
    <>
     <div className="bg-black">  
-      <div class="relative grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-0">  
+      <div className="relative grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-0">  
         
         <Rendering data={data}/>
 
         <div className="fixed flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 w-full">
           
           <Header/>
-          
-          
+          <div className="hero-headline mb-10 flex flex-col mb-1 items-center justify-center text-center">
+            <Link href="/artist/">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
+              All Artist Find!
+            </button>
+            </Link>
+          </div>
+
           <Search onChangeSearchKeyword={onChangeSearchKeyword} onChangeSearchVisible={onChangeSearchVisible}/>
           
           <Rendering1 data={artistInfo} onChangeSearchKeyword={onChangeSearchKeyword} onChangeSearchVisible={onChangeSearchVisible} visible={visible}/>
+          
         </div>
-
       </div>
 
     </div>
