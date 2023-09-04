@@ -70,7 +70,7 @@ var getSnsData = {
   },
   naverImage : async function( artist_id ){
     var _d = data[ artist_id ]
-    const res = await fetch('https://openapi.naver.com/v1/search/image?query=' + encodeURI( _d.names.KO + " 가수" ) + '&display=20&start=1&sort=date', {
+    const res = await fetch('https://openapi.naver.com/v1/search/image?query=' + encodeURI( _d.names.KO + " 가수" ) + '&display=20&start=1&sort=sim', {
       method: "GET",
       headers:{
         "X-Naver-Client-Id": "9UVPlZQvIgc2N0VMbJKf",
