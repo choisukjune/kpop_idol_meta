@@ -403,7 +403,7 @@ return (
 <div class="mx-auto max-w-2xl px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
 
   <div role="list" className="divide-y divide-gray-100">
-    <div className="flex min-w-0 gap-x-4 mb-10 ">
+    <div className="flex min-w-0 gap-x-4 mt-5 mb-10 ">
       
       <img className="h-12 w-12  object-cover object-center group-hover:opacity-75 rounded-full bg-gray-50" src={data[ params.slug ].imgUrl} alt=""/>
       
