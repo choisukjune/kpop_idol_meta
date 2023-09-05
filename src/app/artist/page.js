@@ -266,7 +266,7 @@ const Home = () => {
    <>
     <div className="bg-black">
  
-        <div className="grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-0">
+        <div className="grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-0">
         <div className="flex min-h-full flex-col justify-center px-3 py-3 lg:px-8 w-full">
           
           <Header/>
