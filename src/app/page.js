@@ -93,7 +93,8 @@ const getStarData = ( txt ) => {
   for(s in data ){
     so = data[ s ]
     var _t = createFuzzyMatcher(txt);
-    if( _t.test(so.names.EN) )
+    var _t00 = so.names.EN.toLowerCase();
+    if( _t.test(_t00) )
     {
       r[ s ]=  so;
       // so.names.KO = so.names.KO.replace(_t, (match, ...groups) => {
@@ -120,10 +121,11 @@ const Search = (props) => {
     setSearch(e.target.value)
     console.log(e.target.value)
     console.log( "lowercase => ", e.target.value.toLowerCase() )
-    var searchData = getStarData(e.target.value);
+    var _tttt = e.target.value.toLowerCase();
+    var searchData = getStarData(_tttt);
     console.log(searchData)
     if( Object.keys(searchData).length == 0 ) return;
-    if( e.target.value != "" ) props.onChangeSearchVisible("")
+    if( _tttt != "" ) props.onChangeSearchVisible("")
     else props.onChangeSearchVisible("hidden")
     props.onChangeSearchKeyword(searchData);
 
