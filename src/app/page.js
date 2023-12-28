@@ -71,7 +71,7 @@ function ch2pattern(ch) {
 }
 function createFuzzyMatcher(input) {
 
-  const pattern = input
+  const pattern = input.toLowerCase();
   .split('')
   .map(ch2pattern)
   .map(pattern => '(' + pattern + ')')
@@ -89,16 +89,12 @@ return new RegExp(pattern);
 const getStarData = ( txt ) => {
   
   var r = {};
-  //var txt = txt.toLowerCase();
-  console.log( txt )
   var s,so;
   for(s in data ){
     so = data[ s ]
     var _t = createFuzzyMatcher(txt);
-    console.log( _t )
-    if( _t.test(so.names.EN ) )
+    if( _t.test( so.names.EN.toLowerCase() ) )
     {
-      //console.log( so.names.EN.toLowerCase() )
       r[ s ]=  so;
       // so.names.KO = so.names.KO.replace(_t, (match, ...groups) => {
       //   const letters = groups.slice(0, txt.length);
