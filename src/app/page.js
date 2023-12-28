@@ -93,7 +93,7 @@ const getStarData = ( txt ) => {
   for(s in data ){
     so = data[ s ]
     var _t = createFuzzyMatcher(txt);
-    if( _t.test(so.names.KO) )
+    if( _t.test(so.names.EN) )
     {
       r[ s ]=  so;
       // so.names.KO = so.names.KO.replace(_t, (match, ...groups) => {
