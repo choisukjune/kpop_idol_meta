@@ -71,7 +71,7 @@ function ch2pattern(ch) {
 }
 function createFuzzyMatcher(input) {
 
-  const pattern = input.toLowerCase();
+  const pattern = input.toLowerCase()
   .split('')
   .map(ch2pattern)
   .map(pattern => '(' + pattern + ')')
