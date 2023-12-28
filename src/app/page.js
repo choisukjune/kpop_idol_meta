@@ -89,13 +89,15 @@ return new RegExp(pattern);
 const getStarData = ( txt ) => {
   
   var r = {};
-  var txt = txt.toLowerCase();
+  //var txt = txt.toLowerCase();
+  console.log( txt )
   var s,so;
   for(s in data ){
     so = data[ s ]
     var _t = createFuzzyMatcher(txt);
-    if( _t.test(so.names.EN.toLowerCase() ) )
+    if( _t.test(so.names.EN ) )
     {
+      console.log( so.names.EN.toLowerCase() )
       r[ s ]=  so;
       // so.names.KO = so.names.KO.replace(_t, (match, ...groups) => {
       //   const letters = groups.slice(0, txt.length);
