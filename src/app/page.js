@@ -119,7 +119,9 @@ const Search = (props) => {
     const handleChange = (e) => {
     setSearch(e.target.value)
     console.log(e.target.value)
-    var searchData = getStarData(e.target.value)
+    console.log( "lowercase => ", .target.value.toLowerCase() )
+    var searchData = getStarData(e.target.value);
+    console.log(searchData)
     if( Object.keys(searchData).length == 0 ) return;
     if( e.target.value != "" ) props.onChangeSearchVisible("")
     else props.onChangeSearchVisible("hidden")
