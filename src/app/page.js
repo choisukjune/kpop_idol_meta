@@ -87,7 +87,7 @@ return new RegExp(pattern);
 // console.log( createFuzzyMatcher('!!!').test('궁고구마') ); // false
 
 const getStarData = ( txt ) => {
-  
+  debugger;
   var r = {};
   var s,so;
   for(s in data ){
@@ -119,7 +119,8 @@ const Search = (props) => {
     const handleChange = (e) => {
     setSearch(e.target.value)
     console.log(e.target.value)
-    var searchData = getStarData(e.target.value.toLowerCase())
+    debugger;
+    var searchData = getStarData(e.target.value )
     if( Object.keys(searchData).length == 0 ) return;
     if( e.target.value != "" ) props.onChangeSearchVisible("")
     else props.onChangeSearchVisible("hidden")
