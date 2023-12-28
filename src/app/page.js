@@ -93,7 +93,7 @@ const getStarData = ( txt ) => {
   for(s in data ){
     so = data[ s ]
     var _t = createFuzzyMatcher(txt);
-    var _t00 = so.names.EN.toLowerCase();
+    var _t00 = s.toLowerCase();
     if( _t.test(_t00) )
     {
       r[ s ]=  so;
