@@ -121,7 +121,7 @@ const Search = (props) => {
     setSearch(e.target.value)
     console.log(e.target.value)
     console.log( "lowercase => ", e.target.value.toLowerCase() )
-    var _tttt = e.target.value.toLowerCase();
+    var _tttt = e.target.value.toLowerCase().replace(/\s/g, "");
     var searchData = getStarData(_tttt);
     console.log(searchData)
     if( Object.keys(searchData).length == 0 ) return;
