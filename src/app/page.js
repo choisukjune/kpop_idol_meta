@@ -71,12 +71,12 @@ function ch2pattern(ch) {
 }
 function createFuzzyMatcher(input) {
 
-  const pattern = input.toLowerCase()
+  const pattern = input
   .split('')
   .map(ch2pattern)
   .map(pattern => '(' + pattern + ')')
   .join('.*?');
-return new RegExp(pattern);
+return new RegExp(pattern.toLowerCase());
 
 }
 // console.log( createFuzzyMatcher('@@@@').test('크리스마스') ); // true
