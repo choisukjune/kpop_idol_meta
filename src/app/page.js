@@ -95,9 +95,10 @@ const getStarData = ( txt ) => {
   for(s in data ){
     so = data[ s ]
     var _t = createFuzzyMatcher(txt);
+    console.log( _t )
     if( _t.test(so.names.EN ) )
     {
-      console.log( so.names.EN.toLowerCase() )
+      //console.log( so.names.EN.toLowerCase() )
       r[ s ]=  so;
       // so.names.KO = so.names.KO.replace(_t, (match, ...groups) => {
       //   const letters = groups.slice(0, txt.length);
