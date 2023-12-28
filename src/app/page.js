@@ -71,7 +71,7 @@ function ch2pattern(ch) {
 }
 function createFuzzyMatcher(input) {
 
-  const pattern = input
+  let pattern = input
   .split('')
   .map(ch2pattern)
   .map(pattern => '(' + pattern + ')')
@@ -93,7 +93,7 @@ const getStarData = ( txt ) => {
   for(s in data ){
     so = data[ s ]
     var _t = createFuzzyMatcher(txt);
-    if( _t.test( so.names.EN.toLowerCase() ) )
+    if( _t.test(so.names.EN) )
     {
       r[ s ]=  so;
       // so.names.KO = so.names.KO.replace(_t, (match, ...groups) => {
