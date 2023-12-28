@@ -76,7 +76,7 @@ function createFuzzyMatcher(input) {
   .map(ch2pattern)
   .map(pattern => '(' + pattern + ')')
   .join('.*?');
-return new RegExp(pattern.toLowerCase());
+return new RegExp(pattern);
 
 }
 // console.log( createFuzzyMatcher('@@@@').test('크리스마스') ); // true
@@ -119,7 +119,7 @@ const Search = (props) => {
     const handleChange = (e) => {
     setSearch(e.target.value)
     console.log(e.target.value)
-    var searchData = getStarData(e.target.value)
+    var searchData = getStarData(e.target.value.toLowerCase())
     if( Object.keys(searchData).length == 0 ) return;
     if( e.target.value != "" ) props.onChangeSearchVisible("")
     else props.onChangeSearchVisible("hidden")
