@@ -4,8 +4,7 @@ import data from './artistInfo.json';
 import Link from 'next/link'
 import React, { useState } from 'react';
 import Logo from "../../components/Logo"
-
-
+import YouTube from 'react-youtube';
 
 const RenderIcon = ( props ) => {
   var snsIcon = {
@@ -258,6 +257,32 @@ const Header = () => {
   )
 }
 
+const YouTubeBackground = () => {
+  const opts = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+      rel: 0,
+      showinfo: 0,
+      mute: 1,
+      loop: 1,
+      playlist: 'Gt40VneLdX4' // Replace with your YouTube video ID
+    },
+  };
+
+  return (
+    <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-1]">
+      <YouTube
+        videoId="YOUR_VIDEO_ID" // Replace with your YouTube video ID
+        opts={opts}
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[100%] min-h-[100%]"
+      />
+    </div>
+  );
+};
+
 const Home = () => {
   const [artistInfo, setArtistInfo] = useState(data);
   const [visible, setVisible] = useState("hidden");
@@ -272,7 +297,8 @@ const Home = () => {
 
   return (
    <>
-    <div className="bg-black">  
+    <div className="relative">  
+      <YouTubeBackground />
       <div className="relative grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-8 xl:gap-x-0">  
         
         <Rendering data={data}/>
@@ -299,7 +325,5 @@ const Home = () => {
    </>
   )
 }
-
-
 
 export default Home;
