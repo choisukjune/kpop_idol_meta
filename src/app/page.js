@@ -230,7 +230,9 @@ const Rendering1 = (props) => {
 
   return (
   
+    <div style={{visibility: props.visible}} role="list" className="mt-1 divide-y divide-gray-100 relative flex flex-col mb-10 items-center  text-center">
 
+    </div>
   );
 };
 
