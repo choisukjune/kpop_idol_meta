@@ -268,14 +268,14 @@ const YouTubeBackground = () => {
       showinfo: 0,
       mute: 1,
       loop: 1,
-      playlist: 'Gt40VneLdX4'
+      playlist: 'ft70sAYrFyY'
     },
   };
 
   return (
     <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-1]">
       <YouTube
-        videoId="Gt40VneLdX4"
+        videoId="ft70sAYrFyY"
         opts={opts}
         className="absolute top-0 left-0 w-full h-full object-cover"
         onReady={(event) => {
