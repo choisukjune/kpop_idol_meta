@@ -277,7 +277,7 @@ const YouTubeBackground = () => {
       <YouTube
         videoId="Gt40VneLdX4"
         opts={opts}
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-70"
         onReady={(event) => {
           event.target.mute();
         }}
