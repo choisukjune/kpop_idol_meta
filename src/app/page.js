@@ -166,26 +166,26 @@ const MakeStarList = ( props ) => {
         </div>
       )
     }
-    // result.push(
+    result.push(
 
-    //   <div key={s} href="#" className="group h-full w-full">
-    //   <div className="relative aspect-h-1 aspect-w-1 h-48 w-full overflow-hidden bg-black-200 xl:aspect-h-100 xl:aspect-w-7">
-
-
+      <div key={s} href="#" className="group h-full w-full">
+      <div className="relative aspect-h-1 aspect-w-1 h-48 w-full overflow-hidden bg-black-200 xl:aspect-h-100 xl:aspect-w-7">
 
 
-    //     <img src={so.imgUrl} alt={so.names.EN} className="absolute opacity-40 h-full w-full object-cover object-center group-hover:opacity-75"/>
+
+
+        <img src={so.imgUrl} alt={so.names.EN} className="absolute opacity-40 h-full w-full object-cover object-center group-hover:opacity-75"/>
       
-    //     <div className='absolute w-full px-2 py-2 bottom-0.5 hidden'>
-    //       <p className="text-lg font-medium text-slate-50 ">{so.names.KO} - {so.names.EN}</p>
-    //       <Link href={"/artist/" + s } target="_blank">
-    //         <h3 className="flex flex-wrap mt-1 text-sm text-slate-50">{tags}</h3>
-    //       </Link>
-    //     </div>
-    //   </div>
+        <div className='absolute w-full px-2 py-2 bottom-0.5 hidden'>
+          <p className="text-lg font-medium text-slate-50 ">{so.names.KO} - {so.names.EN}</p>
+          <Link href={"/artist/" + s } target="_blank">
+            <h3 className="flex flex-wrap mt-1 text-sm text-slate-50">{tags}</h3>
+          </Link>
+        </div>
+      </div>
 
-    // </div>
-    // );
+    </div>
+    );
   }
   return result;
 }
@@ -300,15 +300,15 @@ const Home = () => {
   return (
     <>
       <YouTubeBackground />
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen flex items-center justify-center">
         <div className="absolute inset-0 z-10 bg-black bg-opacity-50">
           <div className="grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-8 xl:gap-x-0">  
             <Rendering data={data}/>
           </div>
         </div>
-        <div className="relative z-20 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 w-full">
+        <div className="relative z-20 flex flex-col items-center justify-center px-6 py-12 lg:px-8 w-full max-w-3xl">
           <Header/>
-          <div className="hero-headline mb-10 flex flex-col mb-1 items-center justify-center text-center">
+          <div className="mb-10 w-full text-center">
             <Link href="/artist/">
               <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
                 All Artist Find!
