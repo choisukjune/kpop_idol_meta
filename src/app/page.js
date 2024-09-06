@@ -277,7 +277,7 @@ const YouTubeBackground = () => {
       <YouTube
         videoId="Gt40VneLdX4"
         opts={opts}
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-70"
+        className="absolute top-0 left-0 w-full h-full object-cover"
         onReady={(event) => {
           event.target.mute();
         }}
@@ -302,9 +302,9 @@ const Home = () => {
       <YouTubeBackground />
       <div className="relative min-h-screen">
         <div className="absolute inset-0 z-10 bg-black bg-opacity-50">
-          {/* <div className="grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-8 xl:gap-x-0">  
+          <div className="grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-8 xl:gap-x-0">  
             <Rendering data={data}/>
-          </div> */}
+          </div>
         </div>
         <div className="relative z-20 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 w-full">
           <Header/>
