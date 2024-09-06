@@ -311,7 +311,7 @@ const Home = () => {
             </Link>
           </div>
           <Search onChangeSearchKeyword={onChangeSearchKeyword} onChangeSearchVisible={onChangeSearchVisible}/>
-          <Rendering1 data={artistInfo} onChangeSearchKeyword={onChangeSearchKeyword} onChangeSearchVisible={onChangeSearchVisible} visible={visible}/>
+         
         </div>
       </div>
     </>
