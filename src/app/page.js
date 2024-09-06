@@ -268,17 +268,21 @@ const YouTubeBackground = () => {
       showinfo: 0,
       mute: 1,
       loop: 1,
-      playlist: 'Gt40VneLdX4' // Replace with your YouTube video ID
+      playlist: 'Gt40VneLdX4'
     },
   };
 
   return (
     <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-[-1]">
       <YouTube
-        videoId="YOUR_VIDEO_ID" // Replace with your YouTube video ID
+        videoId="Gt40VneLdX4"
         opts={opts}
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[100%] min-h-[100%]"
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        onReady={(event) => {
+          event.target.mute();
+        }}
       />
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
     </div>
   );
 };
@@ -287,7 +291,6 @@ const Home = () => {
   const [artistInfo, setArtistInfo] = useState(data);
   const [visible, setVisible] = useState("hidden");
 
-  //핸들러 함수
   const onChangeSearchKeyword = function (params) {
     setArtistInfo(params);
   };
@@ -296,33 +299,28 @@ const Home = () => {
   };
 
   return (
-   <>
-    <div className="relative">  
+    <>
       <YouTubeBackground />
-      <div className="relative grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-8 xl:gap-x-0">  
-        
-        <Rendering data={data}/>
-
-        <div className="fixed flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 w-full">
-          
+      <div className="relative min-h-screen">
+        <div className="absolute inset-0 z-10">
+          <div className="grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-8 xl:gap-x-0">  
+            <Rendering data={data}/>
+          </div>
+        </div>
+        <div className="relative z-20 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 w-full">
           <Header/>
           <div className="hero-headline mb-10 flex flex-col mb-1 items-center justify-center text-center">
             <Link href="/artist/">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
-              All Artist Find!
-            </button>
+              <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
+                All Artist Find!
+              </button>
             </Link>
           </div>
-
           <Search onChangeSearchKeyword={onChangeSearchKeyword} onChangeSearchVisible={onChangeSearchVisible}/>
-          
           <Rendering1 data={artistInfo} onChangeSearchKeyword={onChangeSearchKeyword} onChangeSearchVisible={onChangeSearchVisible} visible={visible}/>
-          
         </div>
       </div>
-
-    </div>
-   </>
+    </>
   )
 }
 
