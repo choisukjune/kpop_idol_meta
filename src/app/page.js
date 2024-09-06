@@ -234,7 +234,7 @@ const Rendering1 = (props) => {
   
     <div style={{visibility: props.visible}} role="list" className="mt-1 divide-y divide-gray-100 relative flex flex-col mb-10 items-center  text-center">
       <ul className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm  lg:w-1/2" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
-      
+      <MakeStarList1 data={props.data}/>
       </ul>
     </div>
   );
@@ -300,10 +300,15 @@ const Home = () => {
   return (
     <>
       <YouTubeBackground />
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="relative z-20 flex flex-col items-center justify-center w-full max-w-2xl px-6">
+      <div className="relative min-h-screen">
+        <div className="absolute inset-0 z-10 bg-black bg-opacity-50">
+          <div className="grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-8 xl:gap-x-0">  
+            <Rendering data={data}/>
+          </div>
+        </div>
+        <div className="relative z-20 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 w-full">
           <Header/>
-          <div className="mb-10 flex flex-col items-center justify-center text-center">
+          <div className="hero-headline mb-10 flex flex-col mb-1 items-center justify-center text-center">
             <Link href="/artist/">
               <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
                 All Artist Find!
