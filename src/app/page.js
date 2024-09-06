@@ -172,8 +172,6 @@ const MakeStarList = ( props ) => {
       <div className="relative aspect-h-1 aspect-w-1 h-48 w-full overflow-hidden bg-black-200 xl:aspect-h-100 xl:aspect-w-7">
 
 
-
-
         <img src={so.imgUrl} alt={so.names.EN} className="absolute opacity-40 h-full w-full object-cover object-center group-hover:opacity-75"/>
       
         <div className='absolute w-full px-2 py-2 bottom-0.5 hidden'>
@@ -234,7 +232,7 @@ const Rendering1 = (props) => {
   
     <div style={{visibility: props.visible}} role="list" className="mt-1 divide-y divide-gray-100 relative flex flex-col mb-10 items-center  text-center">
       <ul className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm  lg:w-1/2" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
-      <MakeStarList1 data={props.data}/>
+     
       </ul>
     </div>
   );
