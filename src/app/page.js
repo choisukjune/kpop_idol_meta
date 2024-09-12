@@ -287,25 +287,25 @@ const Home = () => {
   return (
     <>
       <YouTubeBackground />
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen flex flex-col">
         <div className="absolute inset-0 z-10 bg-black bg-opacity-50">
           <div className="grid grid-cols-1 gap-x-0 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-8 xl:gap-x-0">  
             <Rendering data={data}/>
           </div>
         </div>
-        <div className="relative z-20 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 w-full">
-          <div className="flex items-center justify-center h-full my-auto">
+        <div className="relative z-20 flex flex-col justify-center items-center w-full px-6 py-12 lg:px-8 flex-grow">
+          <div className="max-w-3xl w-full">
             <Header/>
+            <div className="hero-headline mb-10 flex flex-col items-center justify-center text-center">
+              <Link href="/artist/">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
+                  All Artist Find!
+                </button>
+              </Link>
+            </div>
+            <Search onChangeSearchKeyword={onChangeSearchKeyword} onChangeSearchVisible={onChangeSearchVisible}/>
+            <Rendering1 data={artistInfo} onChangeSearchKeyword={onChangeSearchKeyword} onChangeSearchVisible={onChangeSearchVisible} visible={visible}/>
           </div>
-          <div className="hero-headline mb-10 flex flex-col mb-1 items-center justify-center text-center">
-            <Link href="/artist/">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
-                All Artist Find!
-              </button>
-            </Link>
-          </div>
-          <Search onChangeSearchKeyword={onChangeSearchKeyword} onChangeSearchVisible={onChangeSearchVisible}/>
-          <Rendering1 data={artistInfo} onChangeSearchKeyword={onChangeSearchKeyword} onChangeSearchVisible={onChangeSearchVisible} visible={visible}/>
         </div>
       </div>
     </>
