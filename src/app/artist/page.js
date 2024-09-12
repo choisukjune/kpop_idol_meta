@@ -153,7 +153,7 @@ const ImageWithFallback = ({ src, alt, ...props }) => {
       src={imgSrc}
       alt={alt}
       onError={() => {
-        setImgSrc(`https://via.placeholder.com/400x600?text=${encodeURIComponent(alt)}`);
+        setImgSrc(`https://via.placeholder.com/400x600/000000/FFFFFF?text=${encodeURIComponent(alt)}`);
       }}
     />
   );
