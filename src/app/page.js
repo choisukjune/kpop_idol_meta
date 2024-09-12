@@ -294,7 +294,9 @@ const Home = () => {
           </div>
         </div>
         <div className="relative z-20 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 w-full">
-          <Header/>
+          <div className="flex items-center justify-center h-full">
+            <Header/>
+          </div>
           <div className="hero-headline mb-10 flex flex-col mb-1 items-center justify-center text-center">
             <Link href="/artist/">
               <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
