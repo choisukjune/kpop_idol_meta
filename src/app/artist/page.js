@@ -5,7 +5,22 @@ import Link from 'next/link'
 import React, { useState } from 'react';
 import Logo from "../../../components/Logo"
 
+// 컴포넌트 최상단에 기본 이미지 URL을 정의합니다.
+const DEFAULT_IMAGE_URL = '/path/to/default/image.jpg'; // 실제 기본 이미지 경로로 변경해주세요
 
+// ErrorBoundary 이미지 컴포넌트
+const ImageWithFallback = ({ src, alt, ...props }) => {
+  const [imgSrc, setImgSrc] = useState(src);
+
+  return (
+    <img
+      src={imgSrc}
+      alt={alt}
+      onError={() => setImgSrc(DEFAULT_IMAGE_URL)}
+      {...props}
+    />
+  );
+};
 
 const RenderIcon = ( props ) => {
   var snsIcon = {
@@ -168,7 +183,11 @@ const MakeStarList = ( props ) => {
         <Link href={"/artist/" + s } target="_blank">
         <div className="relative aspect-h-1 aspect-w-1 h-96 w-full overflow-hidden bg-black-200 xl:aspect-h-100 xl:aspect-w-7">
 
-        <img src={so.imgUrl} alt={so.names.EN} className="absolute opacity-75 h-full w-full object-cover object-center group-hover:opacity-75"/>
+        <ImageWithFallback
+          src={so.imgUrl}
+          alt={so.names.EN}
+          className="absolute opacity-75 h-full w-full object-cover object-center group-hover:opacity-75"
+        />
       
         <div className='absolute w-full px-2 py-2 bottom-0.5'>
           <p className="text-lg font-medium text-slate-50 ">{so.names.KO} - {so.names.EN}</p>
@@ -210,7 +229,11 @@ const MakeStarList1 = ( props ) => {
         <Link href={"/artist/" + s } target="_blank">  
         <div className="flex items-center">
           
-            <img src={so.imgUrl} alt="" className="h-5 w-5 flex-shrink-0 rounded-full"/>
+            <ImageWithFallback
+              src={so.imgUrl}
+              alt=""
+              className="h-5 w-5 flex-shrink-0 rounded-full"
+            />
             <span className="font-normal ml-3 block truncate">{so.names.KO}</span>
             <p className="ml-3 mt-1 truncate text-xs leading-5 text-gray-500">{so.names.EN}</p>
           
