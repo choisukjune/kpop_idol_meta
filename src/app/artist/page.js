@@ -278,12 +278,8 @@ const Header = () => {
 }
 
 const Home = () => {
-  const [artistInfo, setArtistInfo] = useState({});  // 빈 객체로 초기화
+  const [artistInfo, setArtistInfo] = useState(data);
   const [visible, setVisible] = useState("hidden");
-
-  useEffect(() => {
-    setArtistInfo(data);  // 컴포넌트가 마운트된 후 데이터 설정
-  }, []);
 
   //핸들러 함수
   const onChangeSearchKeyword = function (params) {
