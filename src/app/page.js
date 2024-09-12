@@ -294,7 +294,7 @@ const Home = () => {
           </div>
         </div>
         <div className="relative z-20 flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 w-full">
-          <div className="flex items-center justify-center h-full">
+          <div className="flex items-center justify-center h-full my-auto">
             <Header/>
           </div>
           <div className="hero-headline mb-10 flex flex-col mb-1 items-center justify-center text-center">
