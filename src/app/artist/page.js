@@ -172,10 +172,10 @@ const MakeStarList = ( props ) => {
 }
 
 const ArtistCard = ({ artistData, id }) => {
-  const [imgSrc, setImgSrc] = useState(artistData.imgUrl);
+  const [imgSrc, setImgSrc] = useState(`https://via.placeholder.com/400x600?text=${encodeURIComponent(artistData.names.EN)}`);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {  // 클라이언트 사이드에서만 실행
+    if (typeof window !== 'undefined') {
       const img = new Image();
       img.src = artistData.imgUrl;
       img.onload = () => setImgSrc(artistData.imgUrl);
@@ -187,10 +187,12 @@ const ArtistCard = ({ artistData, id }) => {
     <div className="group h-full w-full">
       <Link href={"/artist/" + id} target="_blank">
         <div className="relative aspect-h-1 aspect-w-1 h-96 w-full overflow-hidden bg-black-200 xl:aspect-h-100 xl:aspect-w-7">
-          <img 
+          <Image 
             src={imgSrc} 
-            alt={artistData.names.EN} 
-            className="absolute opacity-75 h-full w-full object-cover object-center group-hover:opacity-75"
+            alt={artistData.names.EN}
+            layout="fill"
+            objectFit="cover"
+            className="absolute opacity-75 group-hover:opacity-75"
           />
           <div className='absolute w-full px-2 py-2 bottom-0.5'>
             <p className="text-lg font-medium text-slate-50 ">{artistData.names.KO} - {artistData.names.EN}</p>
