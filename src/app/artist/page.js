@@ -175,14 +175,16 @@ const ArtistCard = ({ artistData, id }) => {
   const [imgSrc, setImgSrc] = useState(artistData.imgUrl);
 
   useEffect(() => {
-    const img = new Image();
-    img.src = artistData.imgUrl;
-    img.onload = () => setImgSrc(artistData.imgUrl);
-    img.onerror = () => setImgSrc(`https://via.placeholder.com/400x600?text=${encodeURIComponent(artistData.names.EN)}`);
+    if (typeof window !== 'undefined') {  // 클라이언트 사이드에서만 실행
+      const img = new Image();
+      img.src = artistData.imgUrl;
+      img.onload = () => setImgSrc(artistData.imgUrl);
+      img.onerror = () => setImgSrc(`https://via.placeholder.com/400x600?text=${encodeURIComponent(artistData.names.EN)}`);
+    }
   }, [artistData.imgUrl, artistData.names.EN]);
 
   return (
-    <div href="#" className="group h-full w-full">
+    <div className="group h-full w-full">
       <Link href={"/artist/" + id} target="_blank">
         <div className="relative aspect-h-1 aspect-w-1 h-96 w-full overflow-hidden bg-black-200 xl:aspect-h-100 xl:aspect-w-7">
           <img 
@@ -192,7 +194,13 @@ const ArtistCard = ({ artistData, id }) => {
           />
           <div className='absolute w-full px-2 py-2 bottom-0.5'>
             <p className="text-lg font-medium text-slate-50 ">{artistData.names.KO} - {artistData.names.EN}</p>
-            <h3 className="flex flex-wrap mt-1 text-sm text-slate-50">{artistData.tags}</h3>
+            <h3 className="flex flex-wrap mt-1 text-sm text-slate-50">
+              {Object.keys(artistData.sns).map((sns) => (
+                <div key={artistData.names.KO + "_" + sns} className="flex mr-2 mb-2 text-xs inline-flex items-center font-bold leading-sm uppercase px-2 py-2 rounded-full bg-white text-gray-700 border">
+                  <RenderIcon sns={sns}/>
+                </div>
+              ))}
+            </h3>
           </div>
         </div>
       </Link>
@@ -268,8 +276,12 @@ const Header = () => {
 }
 
 const Home = () => {
-  const [artistInfo, setArtistInfo] = useState(data);
+  const [artistInfo, setArtistInfo] = useState({});  // 빈 객체로 초기화
   const [visible, setVisible] = useState("hidden");
+
+  useEffect(() => {
+    setArtistInfo(data);  // 컴포넌트가 마운트된 후 데이터 설정
+  }, []);
 
   //핸들러 함수
   const onChangeSearchKeyword = function (params) {
